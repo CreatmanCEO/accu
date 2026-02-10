@@ -54,6 +54,7 @@ async def health():
     return {"status": "healthy"}
 
 
-# Import and include routers when implemented
-# from accu.api import discovery
-# app.include_router(discovery.router, prefix="/api/v1/discovery", tags=["discovery"])
+# Import and include routers
+from accu.api.discovery import router as discovery_router
+
+app.include_router(discovery_router, prefix="/api/v1/discovery", tags=["discovery"])

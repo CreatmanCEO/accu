@@ -2,15 +2,18 @@
 
 from accu.agents.discovery.agent import DiscoveryAgent
 from accu.agents.discovery.models import (
+    CandidateStatus,
     DiscoveryCandidate,
     DiscoveryConfig,
     DiscoveryRunResult,
     RepositoryMetrics,
     RepositorySignals,
     RepositoryScores,
+    SearchStrategy,
 )
 
 __all__ = [
+    "CandidateStatus",
     "DiscoveryAgent",
     "DiscoveryConfig",
     "DiscoveryCandidate",
@@ -18,4 +21,5 @@ __all__ = [
     "RepositoryMetrics",
     "RepositorySignals",
     "RepositoryScores",
+    "SearchStrategy",
 ]

@@ -30,8 +30,8 @@ Read `docs/vision/0_original_dialog.md` for the full vision. Key points:
 |--------|--------|----------|----------|
 | Discovery Agent | 🟡 Code Ready | P0 | `src/accu/agents/discovery/` |
 | AI Providers | 🟡 Code Ready | P0 | `src/accu/providers/` |
-| API Gateway | 🟡 Basic | P0 | `src/accu/main.py` |
-| Technical Analyst | ⚪ Not Started | P1 | — |
+| API Gateway | 🟡 In Progress | P0 | `src/accu/main.py` |
+| Tech Critic Agent | 🟡 Code Ready | P1 | `src/accu/agents/critic/` |
 | Product Re-evaluator | ⚪ Not Started | P2 | — |
 | Narrative Agent | ⚪ Not Started | P2 | — |
 | Infra Agent | ⚪ Not Started | P2 | — |
@@ -51,7 +51,7 @@ From the original vision dialog:
 | Agent | Purpose | Status |
 |-------|---------|--------|
 | **Code Scout** (Discovery) | Find hidden gem repositories | 🟡 Code Ready |
-| **Tech Critic** (Analyst) | Evaluate architecture & quality | ⚪ Planned |
+| **Tech Critic** (Analyst) | Evaluate architecture & quality | 🟡 Code Ready |
 | **Product Reframer** | Reposition for modern markets | ⚪ Planned |
 | **Modernizer** | Update stack, refactor | ⚪ Planned |
 | **Narrative Agent** | Rebrand, new README | ⚪ Planned |
