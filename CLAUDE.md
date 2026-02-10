@@ -8,22 +8,56 @@
 
 **Last Updated:** 2026-02-10
 
+**VPS Status:** Deployed on `instance102973.waicore.network` port 8080
+
+---
+
+## Founder Context (IMPORTANT)
+
+Read `docs/vision/0_original_dialog.md` for the full vision. Key points:
+
+- The founder is **architect of digital life forms**, not a task executor
+- Project must **support the founder**, not consume him
+- **No solo heroism** — the system should work without burning out one person
+- Community model with **fair value distribution**
+- Original authors **always retain authorship and get revenue share**
+
 ---
 
 ## Project Status Dashboard
 
-| Module | Status | Priority | Next Action |
-|--------|--------|----------|-------------|
-| Discovery Agent | 🟡 In Design | P0 | Implement GitHub scanner |
-| Technical Analyst | ⚪ Not Started | P1 | Wait for Discovery |
+| Module | Status | Priority | Location |
+|--------|--------|----------|----------|
+| Discovery Agent | 🟡 Code Ready | P0 | `src/accu/agents/discovery/` |
+| AI Providers | 🟡 Code Ready | P0 | `src/accu/providers/` |
+| API Gateway | 🟡 Basic | P0 | `src/accu/main.py` |
+| Technical Analyst | ⚪ Not Started | P1 | — |
 | Product Re-evaluator | ⚪ Not Started | P2 | — |
+| Narrative Agent | ⚪ Not Started | P2 | — |
+| Infra Agent | ⚪ Not Started | P2 | — |
 | Evolution Support | ⚪ Not Started | P2 | — |
-| Governance Observer | ⚪ Not Started | P3 | — |
-| API Gateway | ⚪ Not Started | P1 | — |
-| Web UI | ⚪ Not Started | P2 | — |
-| Share Accounting | ⚪ Not Started | P2 | — |
+| Governance System | 🟡 Docs Ready | P1 | `docs/governance/` |
+| CP Tracking | 🟡 Spec Ready | P1 | `docs/governance/` |
+| Web UI | ⚪ Not Started | P3 | — |
 
 Status: ⚪ Not Started | 🟡 In Progress | 🟢 Complete | 🔴 Blocked
+
+---
+
+## Full Agent Taxonomy (6 Agents)
+
+From the original vision dialog:
+
+| Agent | Purpose | Status |
+|-------|---------|--------|
+| **Code Scout** (Discovery) | Find hidden gem repositories | 🟡 Code Ready |
+| **Tech Critic** (Analyst) | Evaluate architecture & quality | ⚪ Planned |
+| **Product Reframer** | Reposition for modern markets | ⚪ Planned |
+| **Modernizer** | Update stack, refactor | ⚪ Planned |
+| **Narrative Agent** | Rebrand, new README | ⚪ Planned |
+| **Infra Agent** | Manage servers, deployments | ⚪ Planned |
+
+All agents: **replaceable, sandboxed, human-supervised**
 
 ---
 
@@ -35,7 +69,7 @@ Status: ⚪ Not Started | 🟡 In Progress | 🟢 Complete | 🔴 Blocked
 ├─────────────────────────────────────────────────────────────┤
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐         │
 │  │  Web UI     │  │  API        │  │  CLI        │         │
-│  │  (Frontend) │  │  Gateway    │  │  Tools      │         │
+│  │  (Future)   │  │  Gateway    │  │  Tools      │         │
 │  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘         │
 │         └────────────────┼────────────────┘                 │
 │                          ▼                                  │
@@ -43,40 +77,40 @@ Status: ⚪ Not Started | 🟡 In Progress | 🟢 Complete | 🔴 Blocked
 │  │              Agent Orchestrator                      │   │
 │  │         (Claude Code / Custom Logic)                 │   │
 │  └─────────────────────────────────────────────────────┘   │
-│         │           │           │           │               │
-│         ▼           ▼           ▼           ▼               │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐       │
-│  │Discovery │ │Technical │ │ Product  │ │Evolution │       │
-│  │  Agent   │ │ Analyst  │ │Re-evaltor│ │ Support  │       │
-│  └──────────┘ └──────────┘ └──────────┘ └──────────┘       │
-│         │           │           │           │               │
-│         └───────────┴───────────┴───────────┘               │
-│                          ▼                                  │
+│         │         │         │         │         │           │
+│         ▼         ▼         ▼         ▼         ▼           │
+│  ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐    │
+│  │ Scout  │ │Analyst │ │Reframe │ │Modern- │ │ Infra  │    │
+│  │        │ │        │ │        │ │  izer  │ │ Agent  │    │
+│  └────────┘ └────────┘ └────────┘ └────────┘ └────────┘    │
+│                          │                                  │
 │  ┌─────────────────────────────────────────────────────┐   │
 │  │              AI Provider Abstraction                 │   │
-│  │    (OpenRouter / Claude API / Local LLM / etc.)      │   │
+│  │         (OpenRouter / Claude / OpenAI / Local)       │   │
 │  └─────────────────────────────────────────────────────┘   │
-│                          ▼                                  │
+│                          │                                  │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │                   Data Layer                         │   │
-│  │         (PostgreSQL + Redis Cache)                   │   │
+│  │           PostgreSQL + Redis + CP Tracking           │   │
 │  └─────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Tech Stack
+## Revenue Model (3 Pools)
 
-| Layer | Technology | Rationale |
-|-------|------------|-----------|
-| Backend | Python 3.11+ / FastAPI | User preference, async support |
-| Database | PostgreSQL | Relational data, JSONB for flexibility |
-| Cache | Redis | Session, rate limiting, job queue |
-| Frontend | React + TypeScript | Modern, component-based |
-| AI Providers | OpenRouter (primary) | Multi-model access, cost control |
-| Task Queue | Celery / ARQ | Background agent jobs |
-| Deployment | Docker + Docker Compose | VPS deployment |
+```
+Project Revenue (after costs)
+├── 30-40% → Original Author (perpetual)
+├── 40-50% → Project Contributors (by CP)
+└── 15-25% → ACCU Core Pool
+    ├── Infrastructure
+    ├── Agent maintenance
+    ├── Treasury
+    └── Community Incentive Pool
+```
+
+See `docs/governance/CONTRIBUTION_POINTS.md` for CP calculation.
 
 ---
 
@@ -84,103 +118,36 @@ Status: ⚪ Not Started | 🟡 In Progress | 🟢 Complete | 🔴 Blocked
 
 ```
 accu/
-├── CLAUDE.md              # THIS FILE - project context for Claude Code
-├── README.md              # Public project description
+├── CLAUDE.md              # THIS FILE
 ├── docs/
-│   ├── vision/            # Original manifesto & vision docs
-│   ├── architecture/      # Technical architecture decisions
+│   ├── vision/            # Manifesto, original dialog
+│   ├── governance/        # Charter, CP spec ← NEW
 │   ├── modules/           # Per-module specifications
-│   ├── api/               # API documentation
-│   └── development/       # Development guides & ADRs
-├── src/
-│   └── accu/
-│       ├── __init__.py
-│       ├── main.py        # FastAPI application entry
-│       ├── config.py      # Configuration management
-│       ├── agents/        # AI agent implementations
-│       │   ├── base.py    # Base agent class
-│       │   ├── discovery/ # Discovery agent module
-│       │   ├── analyst/   # Technical analyst module
-│       │   └── ...
-│       ├── core/          # Core business logic
-│       ├── api/           # API routes
-│       ├── models/        # Database models
-│       └── providers/     # AI provider abstractions
-├── tests/
-├── scripts/               # Utility scripts
-├── config/                # Configuration files
-├── docker-compose.yml
-├── Dockerfile
-├── pyproject.toml
-└── .env.example
+│   ├── architecture/      # ADRs
+│   └── development/       # Sprint tracking
+├── src/accu/
+│   ├── agents/
+│   │   ├── base.py
+│   │   └── discovery/     # Scout agent
+│   ├── providers/         # AI abstraction
+│   ├── api/               # FastAPI routes
+│   └── models/            # DB models
+└── tests/
 ```
 
 ---
 
-## Development Workflow
+## VPS Deployment
 
-### Starting a New Session
+**Host:** instance102973.waicore.network
+**Port:** 8080
+**Path:** /root/accu
 
-1. Read this file (CLAUDE.md)
-2. Check `docs/development/CURRENT_SPRINT.md` for active tasks
-3. Review recent commits: `git log --oneline -10`
-4. Continue from where the last session ended
-
-### Making Changes
-
-1. Create feature branch: `git checkout -b feature/<name>`
-2. Implement with tests
-3. Update relevant docs in `docs/modules/`
-4. Update status in this file if milestone reached
-5. Commit with descriptive message
-
-### Module Development Order
-
-```
-Phase 1 (MVP Core):
-  1. AI Provider Abstraction → enables all agents
-  2. Discovery Agent → first value demonstration
-  3. API Gateway → expose functionality
-
-Phase 2 (Evaluation):
-  4. Technical Analyst Agent
-  5. Product Re-evaluator Agent
-  6. Web UI (basic)
-
-Phase 3 (Evolution):
-  7. Evolution Support Agent
-  8. Share Accounting System
-  9. Governance Observer
-```
-
----
-
-## Agent Configuration Schema
-
-All agents follow this configuration pattern:
-
-```yaml
-agent:
-  name: "discovery"
-  version: "0.1.0"
-
-  provider:
-    type: "openrouter"  # or "anthropic", "openai", "local"
-    model: "anthropic/claude-3-haiku"
-    api_key_env: "OPENROUTER_API_KEY"
-
-  limits:
-    max_tokens: 4096
-    rate_limit_rpm: 60
-    timeout_seconds: 30
-
-  capabilities:
-    - "github_search"
-    - "repository_analysis"
-
-  restrictions:
-    - "no_direct_commits"
-    - "no_author_contact"
+```bash
+# SSH to VPS, then:
+cd ~/accu
+export PATH="$HOME/.local/bin:$PATH"
+uv run uvicorn accu.main:app --host 0.0.0.0 --port 8080
 ```
 
 ---
@@ -189,45 +156,62 @@ agent:
 
 | Purpose | File |
 |---------|------|
-| Current sprint tasks | `docs/development/CURRENT_SPRINT.md` |
-| Architecture decisions | `docs/architecture/ADR-*.md` |
-| Module specs | `docs/modules/<module>/SPEC.md` |
-| API contracts | `docs/api/openapi.yaml` |
-| Environment setup | `.env.example` |
+| Original vision | `docs/vision/0_original_dialog.md` |
+| Current sprint | `docs/development/CURRENT_SPRINT.md` |
+| Governance rules | `docs/governance/GOVERNANCE_CHARTER.md` |
+| CP specification | `docs/governance/CONTRIBUTION_POINTS.md` |
+| Discovery spec | `docs/modules/discovery/SPEC.md` |
+| Provider spec | `docs/modules/providers/SPEC.md` |
 
 ---
 
 ## Commands Reference
 
 ```bash
-# Development
-python -m venv .venv && source .venv/bin/activate
-pip install -e ".[dev]"
-pytest
+# Local development
+uv sync
+uv run uvicorn accu.main:app --reload
 
-# Run locally
-uvicorn accu.main:app --reload
+# VPS deployment
+ssh root@<vps-ip>
+cd ~/accu && git pull
+uv sync
+uv run uvicorn accu.main:app --host 0.0.0.0 --port 8080
 
-# Docker
-docker-compose up -d
-
-# Database
-alembic upgrade head
+# Tests
+uv run pytest
 ```
 
 ---
 
 ## Open Questions / Decisions Needed
 
-- [ ] VPS specs confirmation (CPU/RAM/Storage)
-- [ ] OpenRouter API key setup
+- [x] VPS specs — 2GB RAM, 30GB disk, 1 CPU (sufficient for MVP)
+- [x] OpenRouter API key — configured
 - [ ] Domain name for API
-- [ ] GitHub App vs Personal Access Token for API access
+- [ ] GitHub App vs PAT for repository access
+- [ ] PostgreSQL setup on VPS
+- [ ] Systemd service for persistent run
+
+---
+
+## Session Log
+
+### 2026-02-10 — Session 1
+- Created GitHub repo (private)
+- Built project structure
+- Implemented Discovery Agent (code ready)
+- Implemented AI Provider abstraction (OpenRouter)
+- Deployed to VPS (port 8080)
+- Added Governance Charter + CP Spec
+- Integrated original vision dialog
+
+**Next:** Complete Discovery Agent API endpoints, add database
 
 ---
 
 ## Contact & Resources
 
-- **Vision Docs:** `docs/vision/`
-- **Original Manifesto:** `docs/vision/1_manifesto.md`
-- **GitHub Repo:** https://github.com/CreatmanCEO/accu (private)
+- **GitHub:** https://github.com/CreatmanCEO/accu (private)
+- **Vision:** `docs/vision/`
+- **Governance:** `docs/governance/`
