@@ -1,5 +1,8 @@
 # ACCU — AI-Curated Code Universe
 
+[![en](https://img.shields.io/badge/lang-English-blue.svg)](README.md)
+[![ru](https://img.shields.io/badge/lang-Русский-green.svg)](README.ru.md)
+
 A living ecosystem where artificial intelligence and human creators collaborate to rediscover, modernize, and give new life to undervalued open-source software.
 
 ## Vision
