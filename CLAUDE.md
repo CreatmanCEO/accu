@@ -121,7 +121,8 @@ accu/
 ├── CLAUDE.md              # THIS FILE
 ├── docs/
 │   ├── vision/            # Manifesto, original dialog
-│   ├── governance/        # Charter, CP spec ← NEW
+│   ├── governance/        # Charter, CP spec
+│   ├── candidates/        # Discovery reports ← NEW
 │   ├── modules/           # Per-module specifications
 │   ├── architecture/      # ADRs
 │   └── development/       # Sprint tracking
@@ -162,6 +163,7 @@ uv run uvicorn accu.main:app --host 0.0.0.0 --port 8080
 | CP specification | `docs/governance/CONTRIBUTION_POINTS.md` |
 | Discovery spec | `docs/modules/discovery/SPEC.md` |
 | Provider spec | `docs/modules/providers/SPEC.md` |
+| **First candidate** | `docs/candidates/001_yapsy.md` |
 
 ---
 
@@ -195,7 +197,32 @@ uv run pytest
 
 ---
 
+## Discovery Candidates
+
+| ID | Project | Score | Status | Report |
+|----|---------|-------|--------|--------|
+| 001 | [yapsy](https://github.com/tibonihoo/yapsy) | 78/100 | 🟢 **RECOMMENDED** | `docs/candidates/001_yapsy.md` |
+| 002 | [datasetGPT](https://github.com/radi-cho/datasetGPT) | 72/100 | 🟡 Potential | `docs/candidates/002_datasetGPT.md` |
+| 003 | [slackify](https://github.com/Ambro17/slackify) | 65/100 | ⚪ Pass | `docs/candidates/003_slackify.md` |
+
+### Winner: yapsy ← QUICK WIN DISCOVERED
+- Python plugin framework, 13 years history, ~200 stars
+- **Critical:** Issue #23 — community actively seeking maintainers!
+- **Plot twist:** Python 3.12 fix ALREADY EXISTS on GitHub master!
+- Just needs: testing + CI + PyPI release
+- Fork created: https://github.com/CreatmanCEO/yapsy
+
+---
+
 ## Session Log
+
+### 2026-02-10 — Session 2
+- Ran Discovery Agent demo using MCP GitHub tools
+- Found first candidate: **yapsy** (tibonihoo/yapsy)
+- Created Discovery Report #001 (`docs/candidates/001_yapsy.md`)
+- Identified perfect entry point: Issue #23 "Request for maintainers"
+
+**Next:** Decision on yapsy revival, contact strategy
 
 ### 2026-02-10 — Session 1
 - Created GitHub repo (private)
@@ -205,8 +232,6 @@ uv run pytest
 - Deployed to VPS (port 8080)
 - Added Governance Charter + CP Spec
 - Integrated original vision dialog
-
-**Next:** Complete Discovery Agent API endpoints, add database
 
 ---
 
