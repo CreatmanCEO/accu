@@ -167,11 +167,19 @@ class DiscoveryAgent(BaseAgent):
     ) -> DiscoveryCandidate | None:
         """Process a single repository and create a candidate."""
         try:
+            owner = repo["owner"]["login"]
+            name = repo["name"]
+
             # Get metrics
             metrics = await self.scanner.get_metrics(repo)
 
+            # Get README for AI analysis
+            readme_content = None
+            if self.config.analyze_readme:
+                readme_content = await self.scanner.get_readme(owner, name)
+
             # Get signals (including AI analysis)
-            signals, ai_analysis = await self.analyzer.analyze(repo)
+            signals, ai_analysis = await self.analyzer.analyze(repo, readme_content)
 
             # Calculate scores
             scores = self.scorer.calculate(metrics, signals)
