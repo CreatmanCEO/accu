@@ -9,6 +9,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class AIProviderSettings(BaseSettings):
     """AI provider configuration."""
 
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+
     openrouter_api_key: str = Field(default="", alias="OPENROUTER_API_KEY")
     anthropic_api_key: str = Field(default="", alias="ANTHROPIC_API_KEY")
     openai_api_key: str = Field(default="", alias="OPENAI_API_KEY")
@@ -23,6 +25,8 @@ class AIProviderSettings(BaseSettings):
 class GitHubSettings(BaseSettings):
     """GitHub API configuration."""
 
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+
     token: str = Field(default="", alias="GITHUB_TOKEN")
     api_version: str = "2022-11-28"
     rate_limit_buffer: float = 0.8  # Use 80% of rate limit
@@ -30,6 +34,8 @@ class GitHubSettings(BaseSettings):
 
 class DatabaseSettings(BaseSettings):
     """Database configuration."""
+
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
     url: str = Field(
         default="postgresql+asyncpg://accu:accu@localhost:5432/accu",
@@ -40,6 +46,8 @@ class DatabaseSettings(BaseSettings):
 
 class RedisSettings(BaseSettings):
     """Redis configuration."""
+
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
     url: str = Field(default="redis://localhost:6379/0", alias="REDIS_URL")
 
