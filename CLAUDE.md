@@ -6,7 +6,42 @@
 
 **Current Phase:** MVP Development — Phase 1 (Discovery Agent)
 
-**Last Updated:** 2026-02-10
+**Last Updated:** 2026-02-12
+
+---
+
+## Multi-Agent Development System
+
+ACCU is built and maintained by a team of specialized AI agents.
+**See:** `/docs/agents/README.md` for full documentation.
+
+### Agent Roster
+
+| Agent | Model | Role | Profile |
+|-------|-------|------|---------|
+| **Conductor** | Opus | Strategy, priorities | `.claude/profiles/conductor.md` |
+| **Builder** | Sonnet | Code, deploy | `.claude/profiles/builder.md` |
+| **Scout** | Haiku | Discovery | `.claude/profiles/scout.md` |
+| **Critic** | Sonnet | Review, analysis | `.claude/profiles/critic.md` |
+| **Chronicler** | Haiku | Documentation | `.claude/profiles/chronicler.md` |
+
+### Coordination Files
+
+| File | Purpose |
+|------|---------|
+| `/state/priorities.md` | Current priorities (P0/P1/P2) |
+| `/state/active-tasks.md` | Who's doing what right now |
+| `/state/decisions.md` | Why we made decisions |
+| `/docs/agents/handoff-protocol.md` | How agents coordinate |
+
+### Running as an Agent
+
+```bash
+# Start Claude Code with specific profile
+claude --profile conductor  # or builder, scout, critic, chronicler
+
+# Always read state files first, update when done
+```
 
 **VPS Status:** Deployed on `instance102973.waicore.network` port 8080
 
