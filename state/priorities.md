@@ -1,23 +1,24 @@
 # ACCU Priorities
 
-> Last updated: 2026-02-12
-> Updated by: Human + Claude
+> Last updated: 2026-02-16
+> Updated by: Conductor Agent
 
 ## Current Phase: MVP Validation
 
 ## P0 - Critical (This Week)
-1. Complete yapsy revival cycle (first proof of concept)
-2. Set up multi-agent system on VPS
+1. **[Builder] Ship yapsy revival from fork** — First proof of concept
+   - Release as `yapsy-revival` on PyPI
+   - Version 2.0.0
 
 ## P1 - High (This Sprint)
-- [ ] Integrate Tech Critic Agent into pipeline
-- [ ] Get yapsy PR merged OR release from fork
-- [ ] Document first successful revival
+- **[Critic]** Deep analysis of CaseRecommender — GO/NO-GO decision
+- **[Scout]** Find 2 more Python candidates
+- **[Chronicler]** Document first revival process (after Builder ships)
 
 ## P2 - Medium (Next Sprint)
 - [ ] Add PostgreSQL for persistent storage
-- [ ] Evaluate second candidate (CaseRecommender?)
 - [ ] Build basic web dashboard
+- [ ] Integrate Tech Critic Agent into pipeline
 
 ## P3 - Low (Backlog)
 - [ ] Public documentation
@@ -27,7 +28,12 @@
 ---
 
 ## Blocked
-- Waiting for yapsy maintainer response on PR #26
+- Nothing currently blocked
 
-## Decisions Pending
-- Fork and release yapsy independently vs wait for upstream?
+## Decisions Made
+- 2026-02-16: Release yapsy from fork (PR #26 no response 6 days)
+- 2026-02-16: Track A priority over Track B
+- 2026-02-16: Keep discovery pipeline warm
+
+## Next Conductor Session
+After Builder ships yapsy OR 2026-02-19, whichever comes first.

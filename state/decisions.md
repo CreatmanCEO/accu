@@ -32,3 +32,12 @@ REASON: Why this decision was made
 ALTERNATIVES CONSIDERED: What else was considered (optional)
 REVERSIBLE: Yes/No (optional)
 ```
+
+[2026-02-16] [Conductor] DECISION: Release yapsy from fork as yapsy-revival
+REASON: PR #26 to original repo has no response for 6 days. Maintainer has open "request for maintainers" issue (#23). We proceed independently to prove ACCU model works. If upstream responds later, we can merge back.
+
+[2026-02-16] [Conductor] DECISION: Prioritize Track A (yapsy revival) over Track B (agent infra)
+REASON: Ship one success before building more infrastructure. Working code > planning documents.
+
+[2026-02-16] [Conductor] DECISION: Keep discovery pipeline warm while Builder ships yapsy
+REASON: Scout should find 2 more candidates so Critic can analyze while Builder is busy. No idle time.
